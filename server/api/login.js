@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     message: "Login successful",
     user: {
       email: user.email,
-      name: user.name || "",
+      name: user.firstName || "",
     },
   };
 });

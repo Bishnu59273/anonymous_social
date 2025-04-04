@@ -4,6 +4,7 @@ const password = ref("");
 const NotVerify = ref(false);
 const emailVerified = ref(false);
 const isLoggedIn = ref(false);
+const name = ref("");
 
 const verifyEmail = async () => {
   try {
@@ -36,6 +37,7 @@ const login = async () => {
 
     if (data.value.success) {
       isLoggedIn.value = true;
+      name.value = data.value.user.name;
       alert("Login successful ✅");
     } else {
       alert(data.value.message || "Invalid email or password ❌");
@@ -129,7 +131,7 @@ const login = async () => {
               </div>
             </div>
             <div v-if="isLoggedIn">
-              <p>Welcome, {{ email }}!</p>
+              <p>Welcome, {{ name }}!</p>
             </div>
             <!-- <a href="/SignUp">
               <button
