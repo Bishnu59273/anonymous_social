@@ -2,6 +2,7 @@
 useHead({
   title: "messages",
 });
+const { data: users } = await useFetch("/api/users");
 </script>
 <template>
   <NuxtLayout name="footer">
@@ -11,6 +12,10 @@ useHead({
           <login />
           <div class="text-center">
             <h1>Messagess</h1>
+          </div>
+          <div>
+            <h3>Users:</h3>
+            <pre>{{ users }}</pre>
           </div>
         </div>
       </div>

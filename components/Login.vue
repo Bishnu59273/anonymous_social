@@ -5,22 +5,44 @@ const NotVerify = ref(false);
 const emailVerified = ref(false);
 const isLoggedIn = ref(false);
 
-const verifyEmail = () => {
-  // You would typically make an API call to check if the email exists in your database
-  // For demonstration purposes, I'll assume a simple check here
-  if (email.value === "example@example.com") {
-    emailVerified.value = true;
-    alert("verified");
-  } else {
-    NotVerify.value = true;
-    alert("Email not registered, Register your email");
+const verifyEmail = async () => {
+  try {
+    const { data } = await useFetch("/api/check-email", {
+      method: "POST",
+      body: { email: email.value },
+    });
+
+    if (data.value.exists) {
+      emailVerified.value = true;
+      alert("Verified ✅");
+    } else {
+      NotVerify.value = true;
+      alert("Email not registered, Register your email");
+    }
+  } catch (error) {
+    alert("Something went wrong!");
+    console.error(error);
   }
 };
-const login = () => {
-  if (email.value === "example@example.com" && password.value === "password") {
-    isLoggedIn.value = true;
-  } else {
-    alert("Invalid email or password. Please try again.");
+const login = async () => {
+  try {
+    const { data } = await useFetch("/api/login", {
+      method: "POST",
+      body: {
+        email: email.value,
+        password: password.value,
+      },
+    });
+
+    if (data.value.success) {
+      isLoggedIn.value = true;
+      alert("Login successful ✅");
+    } else {
+      alert(data.value.message || "Invalid email or password ❌");
+    }
+  } catch (error) {
+    alert("Something went wrong during login!");
+    console.error(error);
   }
 };
 </script>

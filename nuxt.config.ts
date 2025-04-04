@@ -33,6 +33,9 @@ export default defineNuxtConfig({
       // PHONE: "+1 732-394-1115",
       // EMAIL: "",
     },
+    runtimeConfig: {
+      MONGO_URI: process.env.MONGO_URI,
+    },
   },
 
   compatibilityDate: "2024-09-25",
