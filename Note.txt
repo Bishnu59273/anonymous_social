@@ -1,0 +1,52 @@
+Set Video Path
+Set Image Path
+
+- Prfile - 
+Image(Avatar) / Active Or Not 
+p_User-name()
+Interasted Topics(Selection)
+address(Location)
+Sex 
+18+
+age
+User_About Me 
+User_Email Id 
+User_Post's 
+
+
+
+
+
+
+
+
+- Registration Form -
+Name 
+User Id 
+Emai 
+Sex 
+Age
+
+Password 
+Confirm Password
+
+Security Question's
+
+
+Otp Verify 
+
+
+
+- Login Page -
+
+Email Id 
+Password 
+recaptcha
+
+forgate / email(User Id) , password 
+
+
+
+
+
+shibam change 
